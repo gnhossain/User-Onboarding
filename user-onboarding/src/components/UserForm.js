@@ -13,6 +13,7 @@ const UserForm = ({ values, errors, touched, status }) => {
 
   return (
     <div className="user-form">
+      <h1>User Onboarding</h1>
       <Form>
         <Field type="text" name="name" placeholder="Name" />
         {touched.name && errors.name && (
