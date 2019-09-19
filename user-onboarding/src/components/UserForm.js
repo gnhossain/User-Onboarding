@@ -26,7 +26,12 @@ const UserForm = ({ values, errors, touched, status }) => {
         {touched.password && errors.password && <p className="error">{errors.password}</p>}
         
 
-        
+        <Field component="select" className="role-select" name="role">
+          <option>Please Choose an Option</option>
+          <option value="front">Front</option>
+          <option value="middle">Middle</option>
+          <option value="back">Back</option>
+        </Field>
         
         <label>
          terms
