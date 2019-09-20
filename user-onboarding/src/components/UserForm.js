@@ -29,14 +29,15 @@ const UserForm = ({ values, errors, touched, status }) => {
 
         <Field component="select" className="role-select" name="role">
           <option>Please Choose an Option</option>
-          <option value="front">Front</option>
-          <option value="middle">Middle</option>
-          <option value="back">Back</option>
+          <option value="frontEnd">Front End</option>
+          <option value="ui">UI</option>
+          <option value="backEnd">Back End</option>
         </Field>
         
         <label>
          terms
           <Field
+            required
             type="checkbox"
             name="terms"
             checked={values.terms}
@@ -49,6 +50,7 @@ const UserForm = ({ values, errors, touched, status }) => {
         <ul key={user.id}>
           <li>Name:{user.name}</li>
           <li>Email: {user.email}</li>
+          <li>Role: {user.role}</li>
         </ul>
       ))}
     </div>
@@ -67,7 +69,7 @@ const FormikUserForm = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string().required("You must put a name"),
     email: Yup.string().required(),
-    password: Yup.string().required()
+    password: Yup.string().required().min(4)
   }),
   //You can use this to see the values
   handleSubmit(values, { setStatus }) {
